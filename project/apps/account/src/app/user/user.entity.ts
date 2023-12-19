@@ -1,5 +1,7 @@
+import { genSalt, hash } from 'bcrypt';
 import { Auth, Role } from '@project/shared/app/types';
 import { Entity } from '@project/shared/core';
+import { SALT_ROUNDS } from './user.constant';
 
 export class UserEntity implements Auth, Entity<string> {
     public id?: string;
@@ -32,6 +34,12 @@ export class UserEntity implements Auth, Entity<string> {
       this.lastName = data.lastName;
       this.dateOfBirth = data.dateOfBirth;
       this.role = data.role;
+    }
+
+    public async setPassword(password: string): Promise<UserEntity> {
+        const salt = await genSalt(SALT_ROUNDS);
+        this.passwordHash = await hash(password, salt);
+        return this;
     }
   
   }
