@@ -1,4 +1,4 @@
-import { genSalt, hash } from 'bcrypt';
+import { compare, genSalt, hash } from 'bcrypt';
 import { Auth, Role } from '@project/shared/app/types';
 import { Entity } from '@project/shared/core';
 import { SALT_ROUNDS } from './user.constant';
@@ -40,6 +40,10 @@ export class UserEntity implements Auth, Entity<string> {
         const salt = await genSalt(SALT_ROUNDS);
         this.passwordHash = await hash(password, salt);
         return this;
+    }
+
+    public async comparePassword(password: string): Promise<boolean> {
+        return compare(password, this.passwordHash);
     }
   
   }
