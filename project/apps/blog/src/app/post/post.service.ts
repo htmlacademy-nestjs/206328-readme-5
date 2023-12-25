@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { PostRepository } from './post.repository';
 import { CreatePostDto } from './dto/create-post-dto';
 import { DeletePostDto } from './dto/delete-post-dto';
+import { UpdatePostDto } from './dto/update-post.dto';
 import { PostEntity } from './post.entity';
 
 @Injectable()
@@ -28,5 +29,12 @@ export class PostService {
         return this.postRepository.deleteById(id);
     }
 
-    
+    public async updatePost(dto: UpdatePostDto) {
+        const { id, ...rest } = dto;
+
+        const postEntity = await new PostEntity(rest);
+
+        return this.postRepository.update(id, postEntity);
+    }
+
 }
