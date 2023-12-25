@@ -30,4 +30,8 @@ export abstract class BaseMemoryRepository<T extends Entity<EntityIdType>> imple
     public async deleteById(id: T['id']): Promise<void> {
         this.entities.delete(id);
     }
+
+    public async get(id?: T['id']): Promise<T|T[]> {
+        return id ? this.entities.get(id) : Array.from(this.entities.values());
+    }
 }
