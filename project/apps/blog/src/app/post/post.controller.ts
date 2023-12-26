@@ -9,7 +9,7 @@ import { PostEntity } from './post.entity';
 export class PostController {
     constructor(private readonly postService: PostService) {}
 
-    @Post('create-post')
+    @Post('create')
     public async create(@Body() dto: CreatePostDto) {
         const newPost = await this.postService.createPost(dto);
         return fillDto(PostRdo, newPost.toPOJO());
