@@ -3,6 +3,7 @@ import { PostRepository } from './post.repository';
 import { CreatePostDto } from './dto/create-post-dto';
 import { DeletePostDto } from './dto/delete-post-dto';
 import { UpdatePostDto } from './dto/update-post.dto';
+import { GetPostDto } from './dto/get-post.dto';
 import { PostEntity } from './post.entity';
 
 @Injectable()
@@ -35,6 +36,15 @@ export class PostService {
         const postEntity = await new PostEntity(rest);
 
         return this.postRepository.update(id, postEntity);
+    }
+
+    public async getPosts() {
+        return this.postRepository.get();
+    }
+
+    public async getPost(dto: GetPostDto) {
+        const { id } = dto;
+        return this.postRepository.get(id);
     }
 
 }
