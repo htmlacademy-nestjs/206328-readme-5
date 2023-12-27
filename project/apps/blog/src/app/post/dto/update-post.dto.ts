@@ -9,13 +9,13 @@ export class UpdatePostDto {
 
     @ApiProperty({
         description: 'text of the post',
-        example: 'kj34j345j-k3k4k53-k34k5ks'
+        example: 'This is the BASE'
     })
     public text: string;
 
     @ApiProperty({
         description: 'author of the post',
-        example: 'kj34j345j-k3k4k53-k34k5ks'
+        example: 'Alexander Tikhonov'
     })
     public author: string;
 
@@ -27,13 +27,13 @@ export class UpdatePostDto {
 
     @ApiProperty({
         description: 'id of users',
-        example: '[loco, bank, bob, sam]'
+        example: '["loco", "bank", "bob", "sam"]'
     })
     public likes: string[];
 
     @ApiProperty({
         description: 'id of posts',
-        example: '[post1, post2, post3, post4]'
+        example: '["post1", "post2", "post3", "post4"]'
     })
     public comments: string[];
 }
