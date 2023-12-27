@@ -14,4 +14,8 @@ GET http://localhost:3000/api/post/9fa63fa4-dcfe-4de8-acda-95e2c51b2909 HTTP/1.1
 
 ###
 
+# Get all post
+GET http://localhost:3000/api/post/all HTTP/1.1
+
+###
 
