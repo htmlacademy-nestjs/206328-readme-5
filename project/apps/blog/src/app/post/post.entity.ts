@@ -1,5 +1,5 @@
-import { Post } from '@project/shared/app/types';
-import { Entity } from '@project/shared/core';
+import { Post } from '@project/types';
+import { Entity } from '@project/core';
 
 export class PostEntity implements Post, Entity<string> {
     public id?: string;

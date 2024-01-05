@@ -1,6 +1,6 @@
 import { compare, genSalt, hash } from 'bcrypt';
-import { Auth, Role } from '@project/shared/app/types';
-import { Entity } from '@project/shared/core';
+import { Auth, Role } from '@project/types';
+import { Entity } from '@project/core';
 import { SALT_ROUNDS } from './user.constant';
 
 export class UserEntity implements Auth, Entity<string> {

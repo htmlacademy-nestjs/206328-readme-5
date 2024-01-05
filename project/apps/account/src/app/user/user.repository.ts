@@ -1,4 +1,4 @@
-import { BaseMemoryRepository } from "@project/shared/core";
+import { BaseMemoryRepository } from "@project/core";
 import { UserEntity } from "./user.entity";
 import { Injectable } from "@nestjs/common";
 

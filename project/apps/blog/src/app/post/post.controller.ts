@@ -1,14 +1,14 @@
 import { Controller, Post, Body, Get, Param, HttpStatus, Put } from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { PostService } from './post.service';
-import { fillDto } from '@project/shared/helpers';
+import { fillDto } from '@project/helpers';
 import { CreatePostDto } from './dto/create-post-dto';
 import { PostRdo } from './rdo/post.rdo';
 import { PostEntity } from './post.entity';
 import { UpdatePostDto } from './dto/update-post.dto';
 
 @ApiTags('blog')
-@Controller('post')
+@Controller('posts')
 export class PostController {
     constructor(private readonly postService: PostService) {}
 
@@ -20,6 +20,17 @@ export class PostController {
     public async create(@Body() dto: CreatePostDto) {
         const newPost = await this.postService.createPost(dto);
         return fillDto(PostRdo, newPost.toPOJO());
+    }
+
+    @ApiResponse({
+        type: PostRdo,
+        status: HttpStatus.OK,
+        description: 'Posts found.'
+    })
+    @Get('/')
+    public async getPosts() {
+        const posts = await this.postService.getPosts() as PostEntity[];
+        return posts.map(item => fillDto(PostRdo, item.toPOJO()));
     }
 
     @ApiResponse({
@@ -44,14 +55,5 @@ export class PostController {
         return fillDto(PostRdo, newPost.toPOJO());
     }
 
-    @ApiResponse({
-        type: PostRdo,
-        status: HttpStatus.OK,
-        description: 'Posts found.'
-    })
-    @Get('all')
-    public async getPosts() {
-        const posts = await this.postService.getPosts() as PostEntity[];
-        return posts.map(item => fillDto(PostRdo, item.toPOJO()));
-    }
+
 }

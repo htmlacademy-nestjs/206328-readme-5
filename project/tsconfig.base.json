@@ -15,9 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@project/shared/app/types": ["shared/app/types/src/index.ts"],
-      "@project/shared/core": ["shared/core/src/index.ts"],
-      "@project/shared/helpers": ["shared/helpers/src/index.ts"]
+      "@project/types": ["libs/types/src/index.ts"],
+      "@project/core": ["libs/core/src/index.ts"],
+      "@project/helpers": ["libs/helpers/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

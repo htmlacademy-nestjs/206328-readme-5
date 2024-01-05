@@ -1,21 +1,21 @@
 {
-  "name": "shared-helpers",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "shared/helpers/src",
+  "name": "types",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/types/src",
   "projectType": "library",
   "targets": {
     "lint": {
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["shared/helpers/**/*.ts"]
+        "lintFilePatterns": ["libs/types/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "shared/helpers/jest.config.ts"
+        "jestConfig": "libs/types/jest.config.ts"
       }
     }
   },

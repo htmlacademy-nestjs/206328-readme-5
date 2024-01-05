@@ -1,5 +1,5 @@
 # Create a new user
-POST http://localhost:3000/api/post/create HTTP/1.1
+POST http://localhost:3000/api/posts/create HTTP/1.1
 Content-Type: application/json
 
 {
@@ -10,12 +10,12 @@ Content-Type: application/json
 ###
 
 # Get user by ID
-GET http://localhost:3000/api/post/9fa63fa4-dcfe-4de8-acda-95e2c51b2909 HTTP/1.1
+GET http://localhost:3000/api/posts/33108074-b279-4e08-b4cd-be1717436495 HTTP/1.1
 
 ###
 
 # Get all post
-GET http://localhost:3000/api/post/all HTTP/1.1
+GET http://localhost:3000/api/posts/ HTTP/1.1
 
 ###
 
