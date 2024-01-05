@@ -27,7 +27,7 @@ export class PostEntity implements Post, Entity<string> {
     public populate(data: Post): void {
       this.text = data.text;
       this.author = data.author;
-      this.timestamp = +(new Date());
+      this.timestamp = new Date().getTime();
       this.likes = [];
       this.comments = [];
     }
