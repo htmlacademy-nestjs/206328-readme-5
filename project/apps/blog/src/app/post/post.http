@@ -1,0 +1,21 @@
+# Create a new user
+POST http://localhost:3000/api/posts/create HTTP/1.1
+Content-Type: application/json
+
+{
+  "author": "user@notfound.local",
+  "text": "Hello world!"
+}
+
+###
+
+# Get user by ID
+GET http://localhost:3000/api/posts/33108074-b279-4e08-b4cd-be1717436495 HTTP/1.1
+
+###
+
+# Get all post
+GET http://localhost:3000/api/posts/ HTTP/1.1
+
+###
+

@@ -1,5 +1,5 @@
-import { Post } from '@project/shared/app/types';
-import { Entity } from '@project/shared/core';
+import { Post } from '@project/types';
+import { Entity } from '@project/core';
 
 export class PostEntity implements Post, Entity<string> {
     public id?: string;
@@ -27,7 +27,7 @@ export class PostEntity implements Post, Entity<string> {
     public populate(data: Post): void {
       this.text = data.text;
       this.author = data.author;
-      this.timestamp = +(new Date());
+      this.timestamp = new Date().getTime();
       this.likes = [];
       this.comments = [];
     }
